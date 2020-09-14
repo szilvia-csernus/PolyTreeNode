@@ -20,14 +20,9 @@ class PolyTreeNode
     def parent=(par)
         return if @parent == par
         old_parent = self.parent
-        old_parent.remove(self) unless old_parent == nil
+        old_parent.children.delete_if {|ch| ch == self } unless old_parent == nil
         @parent = par
         @parent.children << self unless (par == nil)
-    end
-
-    def remove(child)
-        return if child == nil
-        @children.delete_if {|ch| ch == child }
     end
 
     def add_child(child_node)
