@@ -1,20 +1,15 @@
 class PolyTreeNode
+    attr_reader :value, :parent, :children
+
     def initialize(value)
         @value = value
         @parent = nil
         @children = []
     end
 
-    def value
-        @value
-    end
-
-    def parent
-        @parent
-    end
-
-    def children
-        @children
+    def inspect
+        { 'value' => @value,
+          'parent' => @parent}.inspect
     end
 
     def parent=(par)
